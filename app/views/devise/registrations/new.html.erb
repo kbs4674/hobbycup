@@ -1,0 +1,28 @@
+<div class="container col-md-5" align="center" style="margin-top: 200px; padding: 30px; background-color: #fff; border-radius: 15px;">
+  <h2><%= t(".sign_up") %></h2>
+  
+  <div class="col-md-7"><hr/></div>
+  
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+  
+    <div align="left" class="form-inputs align-middle">
+      <div class="row">
+        <div class="col-md-5">이메일</div>
+        <div class="col-md-7"><%= f.email_field :email, class:"form-control", required: true, autofocus: true %></div>
+      </div>
+      
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-5">비밀번호</div>
+        <div class="col-md-7"><%= f.password_field :password, class:"form-control", placeholder: "6글자 이상!", required: true, hint: (t('devise.shared.minimum_password_length', count: @minimum_password_length) if @minimum_password_length) %></div>
+      </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-md-5">비밀번호 재확인</div>
+        <div class="col-md-7"><%= f.password_field :password_confirmation, placeholder: "6글자 이상!", class:"form-control", required: true %></div>
+      </div>
+    </div>
+  
+    <div class="form-actions" style="margin-top: 20px;">
+       <%= f.submit t('.sign_up'), class: "btn btn-info" %>
+    </div>
+  <% end %>

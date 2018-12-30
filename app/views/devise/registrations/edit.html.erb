@@ -1,0 +1,44 @@
+<div class="container col-md-5" align="center" style="margin-top: 200px; padding: 30px; background-color: #fff; border-radius: 15px;">
+<h2><%= t(".title", resource: resource_name.to_s.humanize) %></h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div align="left" class="form-inputs align-middle">
+       <div class="row" style="margin-top: 30px;">
+
+    <div class="col-md-5">이메일</div>
+   <div class="col-md-7"> <%= f.email_field :email, class: "form-control", required: true, autofocus: true %></div>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></p>
+    <% end %>
+    <div class="row" style="margin-top: 30px;">
+<div class="col-md-5">비밀번호</div>
+    <div class="col-md-7"><%= f.password_field :password, class: "form-control",autocomplete: "off", hint: t(".leave_blank_if_you_don_t_want_to_change_it"), required: false %></div>
+  </div>
+  
+   <div class="row" style="margin-top: 30px;">
+   <div class="col-md-5">비밀번호 재확인</div>
+   <div class="col-md-7"> <%= f.password_field :password_confirmation,class: "form-control", required: false %></div>
+  </div>
+   
+     <div class="row" style="margin-top: 30px;">
+   <div class="col-md-5">현재 비밀번호</div>
+   <div class="col-md-7"> <%= f.password_field :current_password,class: "form-control", hint: t(".we_need_your_current_password_to_confirm_your_changes"), required: true %></div>
+  </div>
+  </div>
+  <div class="form-actions" style="margin-top: 30px;">
+    <%= f.button :submit, t(".update"),class: "btn btn-info" %>
+  </div>
+  
+<% end %>
+
+<div style="margin-top: 10px">
+  <h5><%= t(".unhappy") %> <%= link_to t(".cancel_my_account"),
+registration_path(resource_name), data: { confirm: t(".are_you_sure") }, method: :delete, class: "btn btn-danger"%></h5>
+
+</div>
+</div>

@@ -1,0 +1,12 @@
+<center>
+<h3>
+    <form action="/hobbies/set_B" method="post">
+        <div class="row">
+            <div class="col-md-6" style="background-image: url('/img/indoor/home.jpg'); font-size: 70px; background-size: 100% 100%; background-repeat: no-repeat; color: white; padding: 300px;"><input type="radio" name="select" value="indoor"/>안</div>
+            <div class="col-md-6" style="background-image: url('/img/outdoor/outdoor.jpg');  font-size: 70px; background-size: 100% 100%; background-repeat: no-repeat; color: white; padding: 300px;"><input type="radio" name="select" value="outdoor"/>밖</div>
+        </div>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="submit" value="다음" style="padding: 30px; font-size: 30px;" class="btn btn-success col-md-12"/>
+    </form>
+</h3>
+</center>

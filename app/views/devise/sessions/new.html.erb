@@ -1,0 +1,25 @@
+<div class="container col-md-4" align="center" style="margin-top: 200px; padding: 30px; background-color: #fff; border-radius: 15px;">
+  <h2><%= t(".sign_in") %></h2>
+  
+  <div class="col-md-7"><hr/></div>
+  
+  <div style="margin-top: 50px;"></div>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div align="left" class="form-inputs col-md-10">
+      <div class="row">
+        <div class="col-md-3"><%= f.label :이메일 %></div>
+        <div class="col-md-9"><%= f.email_field :email, class: "form-control", style: "color: red", autofocus: true, :required => true %></div>
+      </div>
+      
+      <div class="row" style="margin-top: 20px;">
+        <div class="col-md-3"><%= f.label :암호 %></div>
+        <div class="col-md-9"><%= f.password_field :password, class: "form-control", autocomplete: "off", :required => true, as: :boolean if devise_mapping.rememberable? %></div>
+      </div>
+    </div>
+  
+    <div class="form-actions" style="margin-top: 40px;">
+      <%= f.button :submit, t(".sign_in") %>
+      <%= link_to "회원가입", new_user_registration_path, class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>

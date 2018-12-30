@@ -1,0 +1,26 @@
+<div style="padding: 30px; background-color: black;"></div>
+<div align="center" style="background-color: black; color: yellow; font-size: 30px; bold-weight: bold; padding: 20px;">결승전</div>
+
+<center>
+    <% if @choice == "indoor" %>
+        <form action="/hobbies/set_I" method="post">
+            <div class="row">
+                <% @array_transfer.each do |x| %>
+                    <div class="col-md-6" style="background-image: url('/img/indoor/<%= x %>.jpg'); background-size: 100% 100%; background-repeat: no-repeat; color: white; padding: 300px; font-size: 50px;"><input type="radio" name="next_select" value="<%= x %>"/><%= x %></div>
+                <% end %>
+            </div>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <input type="submit" value="다음" style="padding: 30px;" class="btn btn-success col-md-12"/>
+        </form>
+    <% else %>
+        <form action="/hobbies/set_I" method="post">
+            <div class="row">
+                <% @array_transfer.each do |x| %>
+                    <div class="col-md-6" style="background-image: url('/img/indoor/<%= x %>.jpg'); background-size: 100% 100%; background-repeat: no-repeat; color: white; padding: 300px; font-size: 50px;"><input type="radio" name="next_select" value="<%= x %>"/><%= x %></div>
+                <% end %>
+            </div>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <input type="submit" value="다음" style="padding: 30px;  font-size: 30px; " class="btn btn-success col-md-12"/>
+        </form>
+    <% end %>
+</center>
