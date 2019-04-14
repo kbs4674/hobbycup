@@ -2,7 +2,7 @@
 
 
 ## 팀원
-#### 김철민, 이철희, 김민지, 김지우, 진경, 제욱
+#### 김철민, 이철희, 김민지, 김지우, 진경, 제민욱
 ★ 기술상 수상 ★<br/>
 <img src="https://github.com/kbs4674/hobbycup/blob/master/public/img/prize.png?raw=true" width="500px">
 
